@@ -9,23 +9,23 @@ let tWeight=0;
 if(BMI<18.5){
     tWeight=(18.5-BMI)*(height*2);
 }
-else if(BMI>=25){
+else(BMI>=25) 
     tWeight=(BMI-24.9)*(height*2);
-}
+
 // Give result and advice
 if(BMI<18.5){
     console.log("You are Underweight");
     tWeight=(18.5-BMI)*(height*2);
-    console.log("You should increase:"+ tWeight +"kg")
+    console.log("You should increase:"+ tWeight.toFixed(2) +"kg")
 }
 else if(BMI>=18.5 && BMI<=24.9){
     console.log ("You are Normal weight");
 }
 else if( BMI>=25 && BMI<=29.9){
     console.log ("You are Overweight");
-    console.log("You should decrease:"+ tWeight +"kg");
+    console.log("You should decrease:"+ tWeight.toFixed(2) +"kg");
 }
 else{
     console.log("Obesity");
-    console.log("You should decrease:"+ tWeight +"kg");
+    console.log("You should decrease:"+ tWeight.toFixed(2) +"kg");
 }
