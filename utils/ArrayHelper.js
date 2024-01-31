@@ -1,12 +1,12 @@
-const filterEvenNumber=function (value, index, array){
+const filterEvenNumber=function (value){
     //Logic
     //console.log('Processing at index: '+index);
     return value %2===0;
 }
-const filterOddNumber=function (value, index, array){
+const filterOddNumber=function (value){
     return value %2!==0;
 }
-const convertToEvenNumber=function (value,index,array){
+const convertToEvenNumber=function (value){
     if(value %2 !==0)
         return value *2;
     else 
