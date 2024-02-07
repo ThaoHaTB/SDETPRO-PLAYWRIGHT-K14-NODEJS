@@ -22,20 +22,23 @@ let isControl = true;
 while (isControl = true) {
     printMenu();
     let userOption = getUserOption();
-    //convert to number
-    userOption = Number(userOption);
-    if (userOption === 0) {
-        isControl = false;
-        console.log('Go away kkk');
-        break;
-    } else if (userOption === 1) {
-        findAnAccount(bankAccounts);
+    switch (userOption){
+        case "0": 
+            isControl = false;
+            console.log('Go away kkk');
+            break;
+        case "1":
+            findAnAccount(bankAccounts);
+            break;
+        case "2":
+            updateBalance(bankAccounts);
+            break;
+        default:
+            console.log("Please recheck your option. Valid options are: 0,1,2");
+            break;
     }
-    else if (userOption === 2) {
-        updateBalance(bankAccounts);
-    } else {
-        console.log('Please recheck your option!');
-    }
+    if(isControl===false)
+    break;
 }
 function findAnAccount(bankAccounts) {
     let userInputAccount = getUserAccountNumber();
