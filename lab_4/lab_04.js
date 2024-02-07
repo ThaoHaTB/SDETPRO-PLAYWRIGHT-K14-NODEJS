@@ -22,20 +22,21 @@ let isControl = true;
 while (isControl = true) {
     printMenu();
     let userOption = getUserOption();
-
-    if (userOption == 0) {
-        isControl=false;
+    //convert to number
+    userOption = Number(userOption);
+    if (userOption === 0) {
+        isControl = false;
         console.log('Go away kkk');
-    } else if (userOption == 1) {
+        break;
+    } else if (userOption === 1) {
         findAnAccount(bankAccounts);
     }
-    else if (userOption = 2) {
+    else if (userOption === 2) {
         updateBalance(bankAccounts);
     } else {
         console.log('Please recheck your option!');
     }
 }
-
 function findAnAccount(bankAccounts) {
     let userInputAccount = getUserAccountNumber();
     let count = 0;
@@ -55,10 +56,13 @@ function findAnAccount(bankAccounts) {
 function updateBalance() {
     let userInputAccount = getUserAccountNumber();
     let count = 0;
-    
     for (const bankAccount of bankAccounts) {
         if (bankAccount.accountNumber === userInputAccount) {
-            let userInputMoney = getUserMoney();
+            let userInputMoney = 0;
+            do {
+                userInputMoney = getUserMoney();
+            }
+            while (userInputMoney <= 0)
             if (userInputMoney < bankAccount.balance) {
                 bankAccount.balance = bankAccount.balance - userInputMoney;
                 console.log('You can withdraw money!')
@@ -68,6 +72,7 @@ function updateBalance() {
                 console.log('Your balance is not enough: ' + bankAccount.balance + ', please retry later!')
             }
             break;
+
         }
         else
             count++;
