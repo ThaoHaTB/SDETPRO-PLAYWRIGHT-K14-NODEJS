@@ -12,7 +12,7 @@ function groupWordMapByObject(spareWord) {
     let wordObj = {};
     for (const word of spareWord) {
         if (wordObj.hasOwnProperty(word)) {
-            wordObj[word] += 1;
+            wordObj[word]++;
         } else {
             wordObj[word] = 1;
         }
