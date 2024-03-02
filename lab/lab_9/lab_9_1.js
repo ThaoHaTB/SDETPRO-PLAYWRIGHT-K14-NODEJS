@@ -1,23 +1,57 @@
 const readline = require('readline-sync');
+const { sendRequest } = require('./RequestHelpers');
 
-const postID=getPostID();
-const userID=getUserID();
-let targetUrl= 'https://jsonplaceholder.typicode.com/posts/'+postID;
+const BASE_URL = 'https://jsonplaceholder.typicode.com';
+const SLUG = '/posts';
+let url = `${BASE_URL}${SLUG}`;
 
-function fetchPostContent(postId) {
-    return fetch(targetUrl)
-        .then(response => {
-            if (response.body==null) {
-                console.log('Please check your Post ID');
+let userID = readline.question("Please input user id: ");
+userID=Number(userID);
+let postID = readline.question("Please input post id: ");
+postID=Number(postID);
+// -> still pending, need then or async/ await to return result
+// const filterPosts = sendRequest(url).then(function(posts){
+//     posts.filter(function(posts){
+//         return posts.userId===userId;
+//     })
+// })
+printTargetPost(userID, postID);
+
+printAllPost(userID);
+
+function printTargetPost(userID, postID) {
+    _getAllPost(userID).then(function (filterPosts) {
+        if (filterPosts.length !== 0) {
+            const targetPost = filterPosts.filter(function (posts) {
+                return posts.id === postID;
+            })[0]
+            if (targetPost) {
+                console.log(targetPost);
+            } else {
+                console.log(`The post ID :${postID} is not correct for user ID: ${userID}`);
             }
-            return response.json();
-        })
-        .then(data => data.body);
+        } else {
+            console.log(`Please recheck user ID: ${userID}`);
+        }
+
+    })
 }
 
-function getPostID() {
-    return readline.question('Please enter PostID: ');
+function printAllPost(userID) {
+    _getAllPost(userID).then(function (filterPosts) {
+        if (filterPosts.length !== 0) {
+            console.log(filterPosts);
+        }
+        else {
+            console.log(`Please recheck user ID: ${userID}`);
+        }
+    })
 }
-function getUserID() {
-    return readline.question('Please enter User ID: ');
+
+function _getAllPost(userID) {
+    return sendRequest(url).then(function (posts) {
+        return posts.filter(function (posts) {
+            return posts.userId = userID;
+        })
+    })
 }
