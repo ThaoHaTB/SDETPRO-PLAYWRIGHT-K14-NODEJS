@@ -26,7 +26,7 @@ function printTargetPost(userID, postID) {
                 return posts.id === postID;
             })[0]
             if (targetPost) {
-                console.log(targetPost);
+                console.log(targetPost.body);
             } else {
                 console.log(`The post ID :${postID} is not correct for user ID: ${userID}`);
             }
@@ -40,7 +40,9 @@ function printTargetPost(userID, postID) {
 function printAllPost(userID) {
     _getAllPost(userID).then(function (filterPosts) {
         if (filterPosts.length !== 0) {
-            console.log(filterPosts);
+            for(const post of filterPosts){
+                console.log(post.body);
+            }  
         }
         else {
             console.log(`Please recheck user ID: ${userID}`);
@@ -51,7 +53,7 @@ function printAllPost(userID) {
 function _getAllPost(userID) {
     return sendRequest(url).then(function (posts) {
         return posts.filter(function (posts) {
-            return posts.userId = userID;
+            return posts.userId === userID;
         })
     })
 }

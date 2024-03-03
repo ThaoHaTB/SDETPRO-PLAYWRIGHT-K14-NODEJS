@@ -20,7 +20,7 @@ async function printTargetPost(userID, postID) {
             return posts.id === postID;
         })[0]
         if (targetPost) {
-            console.log(targetPost);
+            console.log(targetPost.body);
         } else {
             console.log(`The post ID :${postID} is not correct for user ID: ${userID}`);
         }
@@ -32,7 +32,9 @@ async function printTargetPost(userID, postID) {
 async function printAllPost(userID) {
     const filterPosts = await _getAllPost(userID);
     if (filterPosts.length !== 0) {
-        console.log(filterPosts);
+        for(const post of filterPosts){
+            console.log(post.body);
+        }   
     }
     else {
         console.log(`Please recheck user ID: ${userID}`);
@@ -42,6 +44,6 @@ async function printAllPost(userID) {
 async function _getAllPost(userID) {
     const posts = await sendRequest(url);
     return posts.filter(function (posts) {
-        return posts.userId = userID;
+        return posts.userId === userID;
     })
 }
