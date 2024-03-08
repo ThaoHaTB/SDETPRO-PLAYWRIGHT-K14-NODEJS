@@ -15,14 +15,13 @@ async function lab11() {
     const allPosts = await requestHandler.getAllPosts(userId, url);
 
     if (post) {
-        //requestHandler.printPost(post);
-        console.log(post.body);
+        requestHandler.printPost(post);
     } else {
         throw new Error(`The post ID ${postId} is not existing for the user ID ${userId}\n`);
     }
 
     if (allPosts.length !== 0) {
-        allPost.forEach(function (post) {
+        allPosts.forEach(function (post) {
             requestHandler.printPost(post);
         });
     } else {
