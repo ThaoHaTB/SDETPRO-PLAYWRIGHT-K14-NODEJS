@@ -1,5 +1,5 @@
 class Post {
-
+    
     constructor(userId, postId, title, body) {
         this._userId = userId;
         this._postId = postId;
@@ -34,11 +34,10 @@ class Post {
     get body() {
         return this._body;
     }
-
+    
     set body(body) {
         this._body = body;
     }
-
 }
 
 module.exports = Post;

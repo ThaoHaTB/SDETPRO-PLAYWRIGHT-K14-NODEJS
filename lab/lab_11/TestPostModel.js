@@ -17,7 +17,7 @@ async function lab11() {
     if (post) {
         requestHandler.printPost(post);
     } else {
-        throw new Error(`The post ID ${postId} is not existing for the user ID ${userId}\n`);
+        throw new Error(`Please recheck userTD ${userId} and postID ${postId}`);
     }
 
     if (allPosts.length !== 0) {
