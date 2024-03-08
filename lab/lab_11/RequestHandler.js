@@ -32,7 +32,7 @@ class RequestHandler {
     }
 
     printPost(post) {
-        console.log(post.body);
+        console.log(post);
     }
 }
 module.exports = RequestHandler;

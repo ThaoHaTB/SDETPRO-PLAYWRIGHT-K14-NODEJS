@@ -14,14 +14,14 @@ async function lab11() {
     const post = await requestHandler.getTargetPost(userId, postId, url);
     const allPosts = await requestHandler.getAllPosts(userId, url);
 
-    console.log(`Print body for postID ${postId} of userID ${userId}`);
+    console.log(`Print postID ${postId} of userID ${userId}`);
     if (post) {
         requestHandler.printPost(post);
     } else {
         throw new Error(`Please recheck userTD ${userId} and postID ${postId}`);
     }
     console.log('+++++++++++++++++++++++++++++++');
-    console.log(`Print all post body of userID ${userId}`);
+    console.log(`Print all post of userID ${userId}`);
     if (allPosts.length !== 0) {
         allPosts.forEach(function (post) {
             requestHandler.printPost(post);
