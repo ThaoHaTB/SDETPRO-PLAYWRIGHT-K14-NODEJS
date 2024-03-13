@@ -33,6 +33,7 @@ async function printAllPost(userID) {
     const filterPosts = await _getAllPost(userID);
     if (filterPosts.length !== 0) {
         for(const post of filterPosts){
+            console.log('++++++++++++++++++++++++++++++')
             console.log(post.body);
         }   
     }

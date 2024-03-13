@@ -1,6 +1,7 @@
 const Post = require('./Post');
 const  {sendRequest } = require('../lab_9/RequestHelpers');
 class RequestHandler {
+
     async getTargetPost(userId, postId, url) {
         const filterPosts = await this._getAllPosts(userId,url);
         const targetPost = filterPosts.filter(function (posts) {
@@ -29,8 +30,9 @@ class RequestHandler {
             return posts.userId === userId;
         });
     }
+
     printPost(post) {
-        console.log(post.body);
+        console.log(post);
     }
 }
 module.exports = RequestHandler;
