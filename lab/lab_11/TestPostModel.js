@@ -23,7 +23,7 @@ async function lab11() {
     console.log('+++++++++++++++++++++++++++++++');
     console.log(`Print all post of userID ${userId}`);
     if (allPosts.length !== 0) {
-        allPosts.forEach(function (post) {
+        allPosts.forEach(post => {
             requestHandler.printPost(post);
             console.log('=============================');
         });
