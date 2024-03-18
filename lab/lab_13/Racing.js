@@ -1,11 +1,11 @@
 class Racing {
     static getWiner(animalList) {
-        let animalMax=null;
+        let animalMax = null;
         if (animalList.length === 3) {
             animalMax = animalList[0];
             for (const animal of animalList) {
                 if (animal.getSpeed() > animalMax.getSpeed())
-                animalMax = animal;
+                    animalMax = animal;
             }
             return animalMax;
         }
@@ -14,4 +14,4 @@ class Racing {
     }
 }
 
-module.exports=Racing;
+module.exports = Racing;
