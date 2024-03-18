@@ -16,7 +16,7 @@ employeeList = [emp_1,emp_2,emp_3,emp_4,emp_5];
 
 console.log(`Sum salary: ${sumSalary(employeeList)}`);
 console.log('================================');
-console.log(minMaxSalary(employeeList));
+minMaxSalary(employeeList);
 console.log('================================');
 console.log('Sort by salary:')
 sortBySalary(employeeList);
