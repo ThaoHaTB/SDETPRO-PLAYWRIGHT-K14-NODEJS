@@ -1,4 +1,4 @@
-class Racing {
+export default class Racing {
     static getWiner(animalList) {
         let animalMax = null;
         if (animalList.length === 3) {

@@ -3,6 +3,7 @@ import Employee from "./Employee";
 export function sumSalary(employeeList: Employee[]) {
     let sum=0;
     employeeList.forEach(employee => {
+        if(employe)
         sum += employee.getSalary();
     });
     return sum;
