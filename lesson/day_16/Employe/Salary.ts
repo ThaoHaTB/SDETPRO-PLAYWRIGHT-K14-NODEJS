@@ -1,10 +1,11 @@
 import Employee from "./Employee";
+import FullTimeEmp from "./FulltimeEmployee";
+import ContractEmp from "./ContractEmployee";
 
 export function sumSalary(employeeList: Employee[]) {
     let sum=0;
     employeeList.forEach(employee => {
-        if(employe)
-        sum += employee.getSalary();
+       sum=sum+employee.getSalary()+employee.getSupportSalary();
     });
     return sum;
 }
